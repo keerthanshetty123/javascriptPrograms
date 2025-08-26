@@ -1,21 +1,26 @@
-function TwoSum(array, target) {
+function TwoSum(num, target) {
   let left = 0;
-  let right = array.length - 1;
-  let sum = 0;
-  let number = [];
-  while (left <= right) {
-    sum = array[left] + array[right];
-    if (sum > target) {
-      right--;
+  let right = num.length - 1;
+
+  // Sort numerically
+  num.sort((a, b) => a - b);
+
+  while (left < right) {
+    let sum = num[left] + num[right];
+
+    if (sum === target) {
+      return [num[left], num[right]]; // return the numbers
     } else if (sum < target) {
       left++;
-    } else if (sum == target) {
-      number.push(left);
-      number.push(right);
-      return number;
+    } else {
+      right--; // ✅ move right pointer left
     }
   }
+
+  return null; // no pair found
 }
+
 let array = [3, 4, 6, 7, 3, 9];
 let target = 6;
 console.log(TwoSum(array, target));
+

@@ -1,16 +1,16 @@
-function TwoSum(array, target) {
-  let HashMap = new Map();
-  for (let i = 0; i < array.length; i++) {
-    let sum = array[i] - target;
-    if (HashMap.get(sum)) {
-      console.log(i);
-      return i;
-    }
-    console.log(HashMap.get(sum));
-    HashMap.set(array[i], i);
-  }
-  console.log(HashMap);
+function optimeSum(num)
+{
+  let hashMap=new Map();
+for(let i=0;i<num.length;i++)
+{
+let sum=target-num[i];
+if(hashMap.has(sum))
+{
+  return[hashMap.get(sum),i];
 }
-let array = [5, 9, 7, 8, 1, 4, 5];
-let target = 6;
-console.log(TwoSum(array, target));
+hashMap.set(num[i],i);
+}
+}
+let num=[3,2,4];
+let target=6;
+console.log(optimeSum(num));
